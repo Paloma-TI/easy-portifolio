@@ -1,79 +1,915 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="U-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CB tracker</title>
-    <link rel="stylesheet" href="index.css">
+    <meta name="description" content="Engenheira de Software especializada em soluções robustas, Clean Code e performance. Conheça meu trabalho.">
+    <meta property="og:title" content="Paloma Lima | Engenheira de Software">
+    <meta property="og:description" content="Engenharia e Performance: Desenvolvimento de sistemas escaláveis e consultoria técnica.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="link-da-sua-foto-de-perfil.jpg"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="not.jpeg" type="image/x-icon">
+
+    <title>Paloma Lima | Engenheira de Software</title>
+    
+    <!-- Fontes e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="not.jpeg" type="image/x-icon">
+    
+    <style>
+        /* --- VARIÁVEIS E RESET --- */
+        :root {
+            --primary-bg: #000000;
+            --accent-blue: #007bff;
+            --whatsapp-green: #25d366;
+            --text-gray: #a0a0a0;
+            --white: #ffffff;
+            --card-bg: #0a0a0a;
+        }
+
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Montserrat', sans-serif; 
+        }
+
+html, body {
+    max-width: 100vw; /* Garante que o site nunca seja maior que a largura da tela */
+    overflow-x: hidden; /* Corta qualquer coisa que tente sair pela lateral */
+    width: 100%;
+}
+
+
+        body { 
+            background-color: var(--primary-bg); 
+            color: var(--white); 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- CABEÇALHO --- */
+        header {
+            padding: 10px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 20, 0.85);
+            backdrop-filter: blur(15px);
+        }
+
+        .logo { 
+            font-weight: 900; 
+            font-size: 1.03rem; 
+            letter-spacing: -1px; 
+        }
+        .logo span { color: var(--accent-blue); }
+
+        /* --- SECÇÃO HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 160px 20px 80px;
+            background: radial-gradient(circle at center, #001f3f 0%, #000 80%);
+        }
+
+        .job-title { 
+            font-size: 1rem; 
+            font-weight: 700; 
+            color: var(--accent-blue); 
+            text-transform: uppercase; 
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 { 
+            font-size: clamp(1.5rem, 10vw, 4rem); 
+            font-weight: 900; 
+            line-height: 1; 
+            margin-bottom: 30px; 
+            text-transform: uppercase;
+        }
+
+        .hero p { 
+            color: var(--text-gray); 
+            max-width: 800px; 
+            margin-bottom: 50px; 
+            font-size: 1.3rem; 
+        }
+
+        /* BOTÃO CTA WHATSAPP */
+        /* Estado Base: O visual de "Vidro/Água" */
+.btn-briefing {
+    background: rgba(255, 255, 255, 0.15); /* Fundo semi-transparente */
+    backdrop-filter: blur(12px);           /* Efeito de desfoque */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil de vidro */
+    color: #fff;
+    transition: all 0.3s ease;             /* Suaviza a mudança para o hover */
+    padding: 10px 20px;                    /* Ajuste conforme seu layout */
+    border-radius: 30px;                    /* Arredondamento */
+}
+
+/* Estado Hover: A transformação em azul */
+.btn-briefing:hover {
+    background: var(--accent-blue);        /* Fica sólido com sua cor */
+    border-color: var(--accent-blue);      /* Borda ganha a cor */
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 123, 255, 0.4);
+}
+
+        /* FOTO DE PERFIL COM GLOW */
+      /* FOTO DE PERFIL COM EFEITO 'POP-OUT' E GLOW */
+/* FOTO DE PERFIL COM GLOW E EFEITO POP-OUT (TAMANHO GRANDE) */
+
+/* FOTO DE PERFIL - FIXAÇÃO DO FORMATO E POP-OUT */
+
+.profile-wrapper {
+    position: relative;
+    width: 650px;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin-top: 50px; /* Espaço para a cabeça saltar */
+}
+
+/* O brilho giratório (mantém o círculo) */
+.profile-glow {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent-blue), transparent, var(--accent-blue), transparent, var(--accent-blue));
+    filter: blur(40px);
+    opacity: 0.6;
+    animation: rotateGlow 8s linear infinite;
+    z-index: 1;
+}
+
+/* 3. BORDA DE VIDRO (O "Glassmorphism") */
+.profile-glass-border {
+    position: absolute;
+    width: 690px; /* Tamanho da borda */
+    height: 690px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05); /* Transparência do vidro */
+    backdrop-filter: blur(12px); /* O efeito de desfoque */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borda clarinha */
+    z-index: 2;
+}
+
+/* O círculo que segura a imagem */
+.profile-img-container {
+    width: 650px;
+    height: 650px;
+    /* Isso força o formato circular mesmo se o conteúdo tentar vazar */
+    clip-path: circle(50% at 50% 50%);
+    position: relative;
+    z-index: 2;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Mantém o corpo no fundo do círculo */
+    border: 8px solid rgba(255, 255, 255, 0.05);
+}
+
+/* A imagem dentro do círculo */
+.profile-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: center 20%; /* Ajuste aqui para subir ou descer a cabeça */
+    /* Remova transformações complexas que podem estar quebrando o layout */
+    transform: none; 
+}
+
+@keyframes rotateGlow { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+
+
+        /* --- SHOWCASE GRID (MOSAICO) --- */
+        .showcase-grid {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background: #000;
+        }
+
+        .showcase-item {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid #1a1a1a;
+        }
+
+        .showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .showcase-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            z-index: 2;
+        }
+
+        .showcase-overlay p { color: var(--accent-blue); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; }
+        .showcase-overlay h3 { font-size: 2rem; font-weight: 900; }
+
+
+
+       /*PARTE DO LAN E DO DAST*/
+
+       /* Container que segura os dois cards lado a lado */
+/* Container que segura os dois cards lado a lado */
+.projects-container {
+    display: grid;
+    /* Força exatamente 2 colunas em telas grandes */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Diminuí o espaço para caber melhor */
+    padding: 20px 0;
+    max-width: 1000px; /* Limita a largura total para não espalhar muito */
+    margin: 0 auto; /* Centraliza o container na tela */
+}
+
+/* Estilo do Card (Mais compacto) */
+.project-card {
+    background: #111116; 
+    border-radius: 15px; /* Bordas um pouco menores */
+    overflow: hidden; 
+    border: 1px solid #1a1a1a;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); 
+    border-color: #007bff; 
+}
+
+/* AJUSTE CRÍTICO DA IMAGEM (Para o Mac aparecer inteiro) */
+.project-image {
+    width: 100%;
+    height: 150px; /* Altura bem menor para forçar a redução */
+    object-fit: contain; /* ESSENCIAL: Faz a imagem inteira caber dentro da altura, sem cortar */
+    background-color: #000; /* Preenche as laterais com preto se a imagem for estreita */
+    padding: 10px 0; /* Dá um respiro para o Mac não encostar nas bordas */
+}
+
+/* Conteúdo interno do card (Mais compacto) */
+.project-content {
+    padding: 15px; /* Menos padding */
+}
+
+.project-content h3 {
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 1.2rem; /* Fonte um pouco menor */
+}
+
+.project-content p {
+    color: #a0a0a0;
+    font-size: 0.85rem; /* Fonte menor */
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Estilo das Tags (Pílulas azuis) */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: rgba(0, 123, 255, 0.1);
+    color: #7a8fff;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+/* Responsividade para Celulares */
+/* Responsividade Total para Celulares */
+@media screen and (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: 1fr !important; /* Força 1 coluna */
+        display: grid !important;
+        padding: 10px;
+    }
+
+    .project-card {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .project-image {
+        height: 180px; /* Aumenta um pouco a imagem no celular para ficar melhor */
+    }
+}
+       
+       
+        /*PARTE DAS TECNOLOGIA QUE USO*/
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(minmax(4, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.tech-card {
+    background: #111116;
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #1a1a1a;
+    transition: 0.3s;
+}
+
+.tech-card:hover {
+    border-color: var(--accent-blue);
+    transform: translateY(-5px);
+}
+
+.tech-card i {
+    font-size: 3rem;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.tech-card h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 800; }
+.tech-card p { font-size: 0.85rem; color: #666; }
+
+/* Ajuste de responsividade para não quebrar em telas menores */
+@media (max-width: 1100px) {
+    .tech-grid { grid-template-columns: repeat(2, 1fr); } /* 2x4 em tablets */
+}
+
+@media (max-width: 600px) {
+    .tech-grid { grid-template-columns: 1fr; } /* 1x8 em celulares */
+}
+
+
+        /* --- SECÇÃO APP (ÍCONES GIGANTES + TELEMÓVEL) --- */
+        .app-section-flex {
+            padding: 150px 10%;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .app-flex-container {
+            display: flex;
+            gap: 100px;
+            align-items: center;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .app-info-column {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        .info-block {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .info-icon {
+            font-size: 4rem;
+            min-width: 120px;
+            height: 120px;
+            background: #f8f9fa;
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .info-text h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+        .info-text p { font-size: 1.3rem; color: #555; }
+
+        .app-phone-column { flex: 0.8; display: flex; justify-content: center; }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #000;
+            border-radius: 60px;
+            padding: 20px;
+            border: 10px solid #111;
+            box-shadow: 0 60px 120px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #050505;
+            border-radius: 45px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .btn-app-login {
+            width: 100%;
+            padding: 25px;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin-top: 40px;
+        }
+
+        /* --- ATRIBUTOS --- */
+        .process-section { padding: 120px 10%; background: #050505; }
+        .section-tag {
+            font-size: 0.7rem; font-weight: 800; border: 1px solid #333;
+            padding: 8px 20px; border-radius: 50px; width: fit-content;
+            margin-bottom: 40px; text-transform: uppercase; letter-spacing: 3px;
+        }
+
+        .process-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 40px 0; border-bottom: 1px solid #1a1a1a;
+            transition: 0.4s;
+        }
+
+        .process-item:hover { transform: translateX(20px); color: var(--accent-blue); border-bottom-color: var(--accent-blue); }
+        .process-title { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+        .process-desc { color: var(--text-gray); font-size: 1.1rem; max-width: 600px; }
+
+/* --- FOOTER --- */ 
+
+.contact-container {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+.contact-btn:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Cores Oficiais */
+.github { background-color: #24292e; }
+.whatsapp { background-color: #25d366; }
+.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.linkedin { background-color: #0077b5; }
+
+        /* --- FOOTER --- */
+        .footer-signature {
+            padding: 100px 20px; text-align: center; background: #000;
+            border-top: 1px solid #111;
+        }
+        .footer-signature p { margin-bottom: 10px; }
+
+        /* WHATSAPP FIXO */
+        .whatsapp-fixed {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 80px;
+            height: 80px;
+            background: var(--whatsapp-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            z-index: 9999;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+        .whatsapp-fixed:hover { transform: scale(1.1) rotate(10deg); }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 1024px) {
+            .app-flex-container { flex-direction: column; text-align: center; }
+            .info-block { flex-direction: column; }
+            .showcase-grid { grid-template-columns: 1fr; }
+            .profile-wrapper { width: 320px; height: 320px; }
+            .profile-img-container { width: 280px; height: 280px; }
+        }
+
+
+        /* --- RESPONSIVIDADE PARA CELULARES --- */
+@media (max-width: 600px) {
+    /* Diminui o contêiner principal */
+    .profile-wrapper {
+        width: 320px;
+        height: 320px;
+        margin-top: 20px;
+    }
+
+    /* Diminui a borda de vidro e o contêiner da foto */
+    .profile-glass-border,
+    .profile-img-container {
+        width: 270px;
+        height: 270px;
+    }
+
+    /* Reduz o efeito de desfoque (blur) no celular para não ficar exagerado */
+    .profile-glow {
+        filter: blur(20px);
+    }
+}
+
+/* --- AJUSTE EXTRA PARA TELAS MUITO PEQUENAS (EX: IPHONE SE) --- */
+@media (max-width: 375px) {
+    .profile-wrapper {
+        width: 280px;
+        height: 280px;
+    }
+    .profile-glass-border,
+    .profile-img-container {
+        width: 240px;
+        height: 240px;
+    }
+}
+    </style>
+
+
 </head>
 <body>
-    <nav>
-        <ul>
-            <li>
-                <a href="index.html">Sobre min</a>
-                </li>
-                <li>
-                    <a href="project.html">Projetos</a>
-                </li>
-                <li>
-                  <a href="contact.html">Contato  
-                </li>
-        </ul>
-    </nav>
-    
+
     <header>
-        <div class="center">
-             <img src="./img/cb1.png"><img src="./img/cb2.png"></img>
-        </div>
-        <h1> CB tracker</h1>
-        <h2>Sua proteção em rastreamento</h2>
+        <div class="logo">PALOMA LIMA<span>.</span></div>
     </header>
 
-   </main>
-         <section>
-            <h3>Sobre a Empresa</h3>
+    <!-- Botão Flutuante -->
+    <a href="https://wa.me/5577999307751" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-            <h4>O Controle da sua frota em suas mãos!</h4>
+    <!-- Secção Hero -->
+  <section class="hero">
+    <h2 class="job-title">Engenheira de Software</h2>
+    <h1>Engineering &<br>Performance</h1>
+    <p>Desenvolvimento de soluções tecnológicas robustas com foco em rigor técnico, cumprimento de prazos e excelência operacional.</p>
+    
+    <a href="https://wa.me/5577999307751?text=Olá Paloma, gostaria de agendar um briefing." class="btn-briefing" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        Agendar um briefing
+    </a>
 
-            <p>
-                Gestão total de sua frota;
-Redução de Custos c/ manuntenção;
-Redução de acidentes;
-Controle os usuarios do veiculo;
-Controle o percurso e muito mais..
-Acompanhamento on-line do computador ou celular.
+    <div class="profile-wrapper">
+        <div class="profile-glow"></div>
+        <div class="profile-glass-border"></div>
+        <div class="profile-img-container">
+            <img src="img.png" alt="Paloma Lima" class="profile-img" onerror="this.src='https://via.placeholder.com/400x400/111/fff?text=Paloma+Lima'">
+        </div>
+    </div>
 
-O Controle da sua frota em suas mãos!
+    <div style="font-size: 0.9rem; opacity: 0.6; letter-spacing: 4px; font-weight: 700;">
+        BRASIL| DISPONÍVEL PARA PROJETOS
+    </div>
+</section>
+
+<section id="sobre" style="padding: 100px 10%; background: #0a0a0a;">
+    <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;">
+        
+        <div style="flex: 1; min-width: 300px; position: relative;">
+            <img src="img.png" alt="Paloma Lima" 
+                 style="width: 100%; 
+                        /* Arredonda superior-direita e inferior-esquerda */
+                        border-radius: 110px 0 130px 0; 
+                        filter: grayscale(20%); 
+                        border: 1px solid #333;
+                        display: block;
+                        /* Efeito de desfoque/sumiço na base para esconder a mão */
+                        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+                        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
+            
+            <div style="position: absolute; bottom: -10px; right: -10px; width: 50px; height: 50px; border-bottom: 4px solid var(--accent-blue); border-right: 4px solid var(--accent-blue); border-radius: 0 0 15px 0;"></div>
+        </div>
+
+        <div style="flex: 1.5; min-width: 300px;">
+            <h2 style="color: var(--accent-blue); font-size: 2.5rem; margin-bottom: 20px; font-weight: 900; text-transform: uppercase;">
+                Engenharia além do código.
+            </h2>
+            <p style="font-size: 1.2rem; color: #a0a0a0; margin-bottom: 20px; line-height: 1.8;">
+                Para mim, desenvolver um site é como <span style="color: white; font-weight: 700;">erguer um edifício</span>. Tudo começa na base, no planejamento da arquitetura, e vai crescendo tijolo por tijolo até se tornar uma estrutura robusta e imponente na tela.
             </p>
-         </section>
-         </main>
+            <p style="font-size: 1.2rem; color: #a0a0a0; line-height: 1.8;">
+                Aprendi com meus mestres que programar está longe de ser difícil: <span style="color: var(--accent-blue); font-weight: 700;">é a arte de resolver problemas</span>. Meu compromisso é entregar soluções que não apenas funcionem, mas que tenham solidez, identidade e rigor técnico.
+            </p>
+        </div>
+    </div>
+</section>
 
-         <footer>
-            <a>
+    <!-- Showcase Mosaico -->
+    <section class="showcase-grid">
+        <div class="showcase-item">
+            <img src="mu.png" alt="Arquitetura" onerror="this.src='https://via.placeholder.com/800x600/000/333?text=Architecture'">
+            <div class="showcase-overlay">
+                <p>Clean Code & Architecture</p>
+                <h3>Arquitetura de Sistemas</h3>
+            </div>
+        </div>
+        <div class="showcase-item">
+            <img src="not.jpeg" alt="Consultoria" onerror="this.src='https://via.placeholder.com/800x600/000/333?text=Consultancy'">
+            <div class="showcase-overlay">
+                <p>Strategy & Focus</p>
+                <h3>Briefing e Consultoria</h3>
+            </div>
+        </div>
+    </section>
 
-            </a>
-         </footer>
-         <header>
-         <div class="center">
-            <img src="./img/cb3.png"><img src="./img/cb4.png"></img>
-            <header>
-       </div>
-       </p>
-     </secção>
-  </principal>
-        <div>
-            <footer>
- <rodapé>
-    <a href="https://www.instagram.com/cb_tracker?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==/" target="_blank" rel="noopener noreferrer">
-        <img src="./img/cb6.png"></img>
-        <p>Intragram</p>
-     </um>
-   </rodapé>
-   <footer>
- </Div>
 
-</corpo>
+
+    <!--PARTE DA LANDING PAGE E DO DASHBOARD-->
+<div class="projects-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+    
+    <div class="project-card">
+        <img src="lang.png" alt="Landing Page" class="project-image">
+        <div class="project-content">
+            <h3>Landing Page Premium</h3>
+            <p>Foco em performance, conversão e interfaces que encantam o usuário final.</p>
+            <div class="project-tags">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <img src="das.png" alt="Dashboards" class="project-image">
+        <div class="project-content">
+            <h3>Sistemas de Monitoramento</h3>
+            <p>Criação de interfaces para visualização de métricas e controle de processos internos.</p>
+            <div class="project-tags">
+                <span class="tag">Engenharia</span>
+                <span class="tag">Interfaces</span>
+                <span class="tag">Chart.js</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--PARTE DA TECNOLOGIA QUE SEI USAR-->
+<div class="tech-grid">
+    <div class="tech-card" data-aos="zoom-in">
+        <i class="fab fa-html5"></i>
+        <h3>HTML5</h3>
+        <p>Semântica e Acessibilidade</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fab fa-css3-alt"></i>
+        <h3>CSS3</h3>
+        <p>Layouts Modernos e Flex/Grid</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fab fa-js"></i>
+        <h3>JavaScript</h3>
+        <p>Lógica e Interatividade ES6+</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fas fa-magic"></i>
+        <h3>Animations</h3>
+        <p>Experiências Fluídas (AOS/CSS)</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="400">
+        <i class="fab fa-github"></i>
+        <h3>GitHub</h3>
+        <p>Controle de Versão e Código</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="500">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Responsividade</h3>
+        <p>Otimizado para Smartphones</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="600">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h3>Vercel & Netlify</h3>
+        <p>Deploy Contínuo e Performance</p>
+    </div>
+
+    <div class="tech-card" data-aos="zoom-in" data-aos-delay="700">
+        <i class="fas fa-drafting-compass"></i>
+        <h3>Arquitetura</h3>
+        <p>Sistemas Robustos e Escaláveis</p>
+    </div>
+</div>
+
+    <!-- App Section (Ícones Gigantes) -->
+    <section class="app-section-flex" >
+        <div class="app-flex-container" data-aos="fade-right">
+            <div class="app-info-column">
+                <div class="info-block">
+                    <div class="info-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="info-text">
+                        <h3>Clean Code</h3>
+                        <p>Arquitetura de software de fácil manutenção e alta escalabilidade.</p>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="info-text">
+                        <h3>Rigor Técnico</h3>
+                        <p>Soluções pensadas para durar com tecnologias modernas globais.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-phone-column">
+                <div class="phone-mockup"data-aos="fade-left">
+                    <div class="phone-screen">
+                        <div style="color: white; font-size: 4rem; font-weight: 900; margin-bottom: 20px;">PL.</div>
+                        <div style="color: #666; font-size: 1.5rem; letter-spacing: 2px;">SYSTEM READY</div>
+                        <a href="#" class="btn-app-login">Conectar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atributos -->
+    <section class="process-section">
+        <div class="section-tag">Meus Atributos</div>
+        <h2 style="font-size: 3rem; margin-bottom: 60px;">Diferenciais Competitivos</h2>
+
+        <div class="process-item">
+            <div class="process-content">
+                <h3 class="process-title">Rigor Técnico e Critério</h3>
+                <p class="process-desc">Sou criteriosa com as obrigações, buscando sempre a melhor lógica de resolução para problemas complexos.</p>
+            </div>
+            <i class="fas fa-arrow-right" style="opacity: 0.3;"></i>
+        </div>
+
+        <div class="process-item">
+            <div class="process-content">
+                <h3 class="process-title">Organização e Compromisso</h3>
+                <p class="process-desc">Foco absoluto no cumprimento rigoroso dos prazos de entrega acordados com transparência total.</p>
+            </div>
+            <i class="fas fa-arrow-right" style="opacity: 0.3;"></i>
+        </div>
+
+        <div class="process-item">
+            <div class="process-content">
+                <h3 class="process-title">Entendimento das Necessidades</h3>
+                <p class="process-desc">Análise profunda da dor do cliente para entregar soluções que geram valor real ao negócio.</p>
+            </div>
+            <i class="fas fa-arrow-right" style="opacity: 0.3;"></i>
+        </div>
+    </section>
+
+    <section id="filosofia" style="padding: 100px 10%; background: #0a0a0a;">
+    <div style="display: flex; align-items: center; gap: 50px; flex-wrap: wrap;" data-aos="fade-up">
+        
+        <div style="flex: 1; min-width: 300px;">
+            <img src="sobremim.jpeg" alt="Paloma Lima - Engenheira de Software" 
+                 style="width: 100%; /* Arredonda superior-direita e inferior-esquerda */
+                        border-radius: 110px 0 130px 0; filter: grayscale(30%); border: 1px solid #222; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+        </div>
+
+        <div style="flex: 1.5; min-width: 300px;">
+            <div class="section-tag" style="margin-bottom: 20px;">Visão & Contexto</div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 900; text-transform: uppercase;">A Responsabilidade na Engenharia</h2>
+            
+            <p style="font-size: 1.1rem; color: #a0a0a0; margin-bottom: 40px; line-height: 1.8;">
+                Para mim, a Engenharia de Software vai além de linhas de código; é uma ferramenta poderosa para moldar o nosso mundo. Em uma era de avanços acelerados, meu compromisso é criar soluções tecnológicas que sejam não apenas eficientes e inovadoras, mas também éticas, transparentes e acessíveis, contribuindo para uma sociedade mais informada e equitativa.
+            </p>
+
+            <div style="background: rgba(0, 123, 255, 0.05); padding: 30px; border-radius: 15px; border-left: 4px solid var(--accent-blue); position: relative;">
+                <i class="fas fa-quote-left" style="color: var(--accent-blue); font-size: 1.5rem; opacity: 0.5; position: absolute; top: 20px; left: 20px;"></i>
+                <p style="font-style: italic; color: #ccc; font-size: 1.2rem; line-height: 1.8; margin-bottom: 15px; padding-left: 30px; padding-right: 30px;">
+                    "Vivemos em uma sociedade extremamente dependente da ciência e da tecnologia, na qual quase ninguém sabe nada sobre ciência e tecnologia. Isso é uma receita clara para o desastre."
+                </p>
+                <p style="text-align: right; color: var(--accent-blue); font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    &mdash; Carl Sagan
+                </p>
+                <i class="fas fa-quote-right" style="color: var(--accent-blue); font-size: 1.5rem; opacity: 0.5; position: absolute; bottom: 20px; right: 20px;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+
+    <section id="contato" style="padding: 100px 10%; background: #050505; text-align: center;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Contato</h2>
+    <div style="width: 50px; height: 3px; background: var(--accent-blue); margin: 0 auto 30px;"></div>
+    
+    <p style="color: #a0a0a0; margin-bottom: 40px; font-size: 1.2rem;">Vamos trabalhar juntos? Entre em contato!</p>
+
+    <div class="contact-container">
+        <a href="https://github.com/Paloma-TI" target="_blank" class="contact-btn github">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+
+        <a href="https://wa.me/5577999307751?text=Olá%20Paloma,%20vi%20seu%20portfólio%20e%20gostaria%20de%20conversar!" target="_blank" class="contact-btn whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+
+        <a href="https://www.instagram.com/palloma_rodr?igsh=MXh1OGUzdmY0bHBsdA==" target="_blank" class="contact-btn instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+
+        <a href="https://www.linkedin.com/in/paloma-rodrigues-279331249/" target="_blank" class="contact-btn linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+    </div>
+</section>
+
+<footer style="padding: 50px 10%; background: #000; text-align: center; border-top: 1px solid #111;">
+    <p style="color: #444; font-size: 0.9rem;">
+        &copy; 2026 Paloma Lima | Engenheira de Software & Web Developer
+    </p>
+</footer>
+
+    <footer style="padding: 60px 10%; background: #000; text-align: center; border-top: 1px solid #111;">
+    
+    <p style="color: #fff; font-size: 1.2rem; font-weight: 500; margin-bottom: 10px; letter-spacing: 0.5px;">
+        I turn problems into <code>&lt;solutions/&gt;</code> 🧩🚀
+    </p>
+    
+    <p style="color: #444; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-top: 20px;">
+        &copy; 2026 Paloma Rodrigues Lima | Software Engineer
+    </p>
+
+</footer>
+  
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init({
+    duration: 1000, // Duração da animação em milissegundos (1 segundo)
+    duration: 1000, 
+    once: false, // Mude para false para repetir a animação sempre
+    mirror: true, // Opcional: faz a animação acontecer também ao subir a página
+    //once: true,      // SE QUISER MUDAR Anima apenas uma vez quando o usuário desce a página
+  });
+</script>
+    
 
 </body>
 </html>
